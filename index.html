@@ -287,6 +287,75 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 
 :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
 :focus:not(:focus-visible) { outline: none; }
+
+/* ── Depoimentos — faixa horizontal ── */
+#depoimentos { background: var(--ink); overflow: hidden; }
+#depoimentos .wrap-dep-hd { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.dep-faixa { display: flex; flex-direction: column; gap: 0; margin-top: 72px; }
+.dep-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 64px;
+  padding: 56px 64px;
+  border-bottom: 1px solid rgba(253,252,250,.06);
+  position: relative;
+  transition: background .4s;
+}
+.dep-item:first-child { border-top: 1px solid rgba(253,252,250,.06); }
+.dep-item:hover { background: rgba(253,252,250,.02); }
+.dep-item::before {
+  content: '"';
+  font-family: var(--serif);
+  font-size: 120px;
+  line-height: .7;
+  color: rgba(201,169,110,.08);
+  position: absolute;
+  top: 32px; left: 56px;
+  pointer-events: none;
+  font-style: italic;
+}
+.dep-content { padding-left: 40px; }
+.dep-quote {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 26px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sand-2);
+  line-height: 1.5;
+  letter-spacing: -.01em;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+.dep-meta { display: flex; align-items: center; gap: 20px; position: relative; z-index: 1; }
+.dep-meta-rule { width: 24px; height: 1px; background: var(--copper); flex-shrink: 0; }
+.dep-name { font-size: 13px; font-weight: 500; color: var(--sand); letter-spacing: .04em; }
+.dep-case { font-size: 11px; color: rgba(253,252,250,.35); letter-spacing: .1em; text-transform: uppercase; margin-top: 2px; }
+.dep-rating { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; padding: 32px 40px; border: 1px solid rgba(201,169,110,.12); }
+.dep-stars-col { display: flex; flex-direction: column; gap: 4px; }
+.dep-star-row { color: var(--copper); font-size: 13px; letter-spacing: 2px; }
+.dep-rating-num { font-family: var(--serif); font-size: 38px; font-weight: 400; color: var(--copper-l); line-height: 1; }
+.dep-rating-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(253,252,250,.25); }
+.dep-area-tag {
+  display: inline-block;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--copper-l);
+  border: 1px solid rgba(201,169,110,.2);
+  padding: 5px 14px;
+  margin-top: 16px;
+}
+@media (max-width: 1024px) {
+  .dep-item { grid-template-columns: 1fr; gap: 32px; padding: 48px 40px; }
+  .dep-rating { flex-direction: row; width: fit-content; }
+  .dep-content { padding-left: 0; }
+}
+@media (max-width: 640px) {
+  .dep-item { padding: 40px 20px; }
+  #depoimentos .wrap-dep-hd { padding: 0 20px; }
+  .dep-item::before { left: 20px; }
+}
 </style>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0b08'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23b87c4c'>M</text></svg>">
@@ -658,57 +727,79 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 </section>
 
 
-<section id="depoimentos" class="sec">
-  <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0">
+<section id="depoimentos">
+  <div class="wrap-dep-hd" style="padding-top:160px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px">
       <div>
         <div class="sl r"><div class="sl-r"></div><span>Clientes</span></div>
-        <h2 class="st r d1">O que dizem sobre<br><em>nosso trabalho</em></h2>
+        <h2 class="st r d1" style="color:var(--sand-2)">O que dizem sobre<br><em>nosso trabalho</em></h2>
       </div>
-      <p class="r d2" style="font-size:14px;line-height:1.82;color:rgba(13,11,8,.44);max-width:300px;text-align:right">Cada caso é único. Cada conquista, compartilhada. Veja o que nossos clientes dizem sobre a experiência.</p>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-card r d1">
-        <div class="dep-stars">
-          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
-        </div>
-        <p class="dep-text">"Depois de anos tentando minha aposentadoria sozinha, a Dra. Mikaeli resolveu em menos de 4 meses. Explicou tudo com paciência, nunca me deixou no escuro. Gratidão enorme."</p>
-        <div class="dep-author">
-          <div class="dep-avatar">M</div>
-          <div>
-            <div class="dep-author-name">Maria Aparecida S.</div>
-            <div class="dep-author-case">Aposentadoria por invalidez · INSS</div>
-          </div>
-        </div>
-      </div>
-      <div class="dep-card r d2">
-        <div class="dep-stars">
-          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
-        </div>
-        <p class="dep-text">"Fui demitido sem receber nada do que era devido. A Dra. Mikaeli entrou com a ação, explicou cada etapa e conseguimos todas as verbas rescisórias mais danos morais. Profissional exemplar."</p>
-        <div class="dep-author">
-          <div class="dep-avatar">R</div>
-          <div>
-            <div class="dep-author-name">Roberto C.</div>
-            <div class="dep-author-case">Rescisão indireta · Trabalhista</div>
-          </div>
-        </div>
-      </div>
-      <div class="dep-card r d3">
-        <div class="dep-stars">
-          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
-        </div>
-        <p class="dep-text">"Tive um problema sério com cobrança indevida de banco. Ela foi direta, eficiente e em 60 dias tínhamos a sentença favorável. Indico para todos que precisam de alguém de confiança."</p>
-        <div class="dep-author">
-          <div class="dep-avatar">A</div>
-          <div>
-            <div class="dep-author-name">Ana Paula F.</div>
-            <div class="dep-author-case">Cobrança indevida · Cível</div>
-          </div>
-        </div>
-      </div>
+      <p class="r d2" style="font-size:14px;line-height:1.82;color:rgba(253,252,250,.38);max-width:300px;text-align:right">Cada caso tratado como único. Cada conquista, compartilhada.</p>
     </div>
   </div>
+
+  <div class="dep-faixa">
+
+    <div class="dep-item r">
+      <div class="dep-content">
+        <p class="dep-quote">"Depois de anos tentando minha aposentadoria sozinha, a Dra. Mikaeli resolveu em menos de 4 meses. Explicou tudo com paciência, nunca me deixou no escuro. Gratidão enorme."</p>
+        <div class="dep-meta">
+          <div class="dep-meta-rule"></div>
+          <div>
+            <div class="dep-name">Maria Aparecida S.</div>
+            <div class="dep-case">São Paulo — SP</div>
+          </div>
+        </div>
+        <span class="dep-area-tag">Aposentadoria por Invalidez · INSS</span>
+      </div>
+      <div class="dep-rating">
+        <div class="dep-rating-num">5.0</div>
+        <div class="dep-star-row">★★★★★</div>
+        <div class="dep-rating-label">Avaliação</div>
+      </div>
+    </div>
+
+    <div class="dep-item r d1">
+      <div class="dep-content">
+        <p class="dep-quote">"Fui demitido sem receber nada do que era devido. A Dra. Mikaeli entrou com a ação, explicou cada etapa e conseguimos todas as verbas rescisórias mais danos morais. Profissional exemplar."</p>
+        <div class="dep-meta">
+          <div class="dep-meta-rule"></div>
+          <div>
+            <div class="dep-name">Roberto C.</div>
+            <div class="dep-case">São Paulo — SP</div>
+          </div>
+        </div>
+        <span class="dep-area-tag">Rescisão Indireta · Direito Trabalhista</span>
+      </div>
+      <div class="dep-rating">
+        <div class="dep-rating-num">5.0</div>
+        <div class="dep-star-row">★★★★★</div>
+        <div class="dep-rating-label">Avaliação</div>
+      </div>
+    </div>
+
+    <div class="dep-item r d2">
+      <div class="dep-content">
+        <p class="dep-quote">"Tive um problema sério com cobrança indevida de banco. Ela foi direta, eficiente e em 60 dias tínhamos a sentença favorável. Indico para todos que precisam de alguém de confiança."</p>
+        <div class="dep-meta">
+          <div class="dep-meta-rule"></div>
+          <div>
+            <div class="dep-name">Ana Paula F.</div>
+            <div class="dep-case">São Paulo — SP</div>
+          </div>
+        </div>
+        <span class="dep-area-tag">Cobrança Indevida · Direito Cível</span>
+      </div>
+      <div class="dep-rating">
+        <div class="dep-rating-num">5.0</div>
+        <div class="dep-star-row">★★★★★</div>
+        <div class="dep-rating-label">Avaliação</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="height:80px"></div>
 </section>
 
 <section id="contato">
