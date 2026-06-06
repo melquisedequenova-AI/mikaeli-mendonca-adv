@@ -23,7 +23,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
-body { background: var(--linen); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.65; overflow-x: hidden; cursor: none; }
+body { background: var(--linen); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.65; overflow-x: hidden; cursor: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* CURSOR — desktop only */
 .cur { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; will-change: left, top; }
@@ -284,7 +284,70 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 
 @keyframes fup { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 @keyframes fin { from { opacity: 0; } to { opacity: 1; } }
+
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
 </style>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0b08'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23b87c4c'>M</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%230d0b08'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='110' font-style='italic' fill='%23b87c4c'>M</text></svg>">
+<link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Mikaeli%20Mendon%C3%A7a%20Advogada%22%2C%22short_name%22%3A%22Mikaeli%20Adv%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230d0b08%22%2C%22theme_color%22%3A%22%230d0b08%22%7D">
+<meta name="theme-color" content="#0d0b08">
+<meta name="msapplication-TileColor" content="#0d0b08">
+<meta name="keywords" content="advogada São Paulo, direito previdenciário São Paulo, direito trabalhista, direito cível, aposentadoria INSS, OAB SP 388926, Mikaeli Mendonça advogada">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Mikaeli Kezia de Mendonça Alves">
+<link rel="canonical" href="https://mikaelimendonca.adv.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mikaeli Mendonça Advogada">
+<meta property="og:url" content="https://mikaelimendonca.adv.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mikaeli Mendonça · Advogada | OAB/SP 388.926">
+<meta name="twitter:description" content="Especialista em Direito Cível, Previdenciário e Trabalhista em São Paulo. Atendimento humanizado e resultados comprovados.">
+<meta name="twitter:image" content="https://www.mikaelimendonca.adv.br/assets/images/ban2-2000x664.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  "name": "Mikaeli Mendonça Advogada",
+  "alternateName": "Dra. Mikaeli Kezia de Mendonça Alves",
+  "description": "Advogada especialista em Direito Cível, Previdenciário e Trabalhista em São Paulo. OAB/SP 388.926.",
+  "url": "https://mikaelimendonca.adv.br",
+  "logo": "https://www.mikaelimendonca.adv.br/assets/images/logo-escolhido-site-662x182.png",
+  "image": "https://www.mikaelimendonca.adv.br/assets/images/img-20200309-195139-169-952x1251.jpg",
+  "telephone": "+55-11-96938-6036",
+  "email": "contato@mikaelimendonca.adv.br",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "São Paulo"
+  },
+  "knowsAbout": ["Direito Cível", "Direito Previdenciário", "Direito Trabalhista", "INSS", "Aposentadoria"],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Ordem dos Advogados do Brasil — OAB/SP",
+    "identifier": "388.926"
+  },
+  "sameAs": [
+    "https://www.instagram.com/mikaelimendoncaadv/"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -297,8 +360,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
   <a href="#areas" onclick="closeMn()">Áreas</a>
   <a href="#sobre" onclick="closeMn()">A Profissional</a>
   <a href="#premiacoes" onclick="closeMn()">Premiações</a>
+  <a href="#depoimentos" onclick="closeMn()">Depoimentos</a>
   <a href="#contato" onclick="closeMn()">Contato</a>
-  <a href="https://wa.me/5511999999999" style="color:var(--copper-l)" onclick="closeMn()">Agendar Consulta</a>
+  <a href="https://wa.me/5511969386036" style="color:var(--copper-l)" onclick="closeMn()">Agendar Consulta</a>
 </div>
 
 <header id="hdr">
@@ -307,8 +371,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
     <li><a href="#areas">Áreas</a></li>
     <li><a href="#sobre">A Profissional</a></li>
     <li><a href="#premiacoes">Premiações</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
     <li><a href="#contato">Contato</a></li>
-    <li><a href="https://wa.me/5511999999999" class="h-cta">Agendar Consulta</a></li>
+    <li><a href="https://wa.me/5511969386036" class="h-cta">Agendar Consulta</a></li>
   </ul>
   <button class="h-burger" onclick="openMn()" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
@@ -333,7 +398,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
     <h1 class="hero-h">Seus direitos,<br>nossa <em>missão</em></h1>
     <p class="hero-p">Assessoria jurídica especializada e humanizada em Direito Cível, Previdenciário e Trabalhista. Cada caso tratado com a seriedade e o cuidado que você merece — porque proteger seus direitos é nossa razão de existir.</p>
     <div class="hero-acts">
-      <a href="https://wa.me/5511999999999" class="btn-s" target="_blank">
+      <a href="https://wa.me/5511969386036" class="btn-s" target="_blank">
         <span>Agendar Consulta Gratuita</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -349,6 +414,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
     <div class="si"><em>Direito Trabalhista</em><span>·</span><span>Verbas &amp; Rescisões</span></div>
     <div class="si"><em>20 Premiações</em><span>·</span><span>Excelência Reconhecida</span></div>
     <div class="si"><em>Consulta Inicial</em><span>·</span><span>Atendimento Humanizado</span></div>
+    <div class="si"><em>5 Estrelas</em><span>·</span><span>Avaliado pelos Clientes</span></div>
     <div class="si"><em>Direito Cível</em><span>·</span><span>Contratos &amp; Indenizações</span></div>
     <div class="si"><em>Direito Previdenciário</em><span>·</span><span>Aposentadoria &amp; INSS</span></div>
     <div class="si"><em>Direito Trabalhista</em><span>·</span><span>Verbas &amp; Rescisões</span></div>
@@ -409,10 +475,10 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 <div class="numbar">
   <div class="wrap">
     <div class="numbar-g">
-      <div class="ni r"><div class="nv">20</div><span class="nl">Premiações Recebidas</span></div>
-      <div class="ni r d1"><div class="nv">500<em>+</em></div><span class="nl">Clientes Atendidos</span></div>
-      <div class="ni r d2"><div class="nv">3</div><span class="nl">Áreas de Especialidade</span></div>
-      <div class="ni r d3"><div class="nv">5<em>+</em></div><span class="nl">Anos de Atuação</span></div>
+      <div class="ni r"><div class="nv"><span data-count="20">0</span></div><span class="nl">Premiações Recebidas</span></div>
+      <div class="ni r d1"><div class="nv"><span data-count="500" data-plus="1">0</span></div><span class="nl">Clientes Atendidos</span></div>
+      <div class="ni r d2"><div class="nv"><span data-count="3">0</span></div><span class="nl">Áreas de Especialidade</span></div>
+      <div class="ni r d3"><div class="nv"><span data-count="5" data-plus="1">0</span></div><span class="nl">Anos de Atuação</span></div>
     </div>
   </div>
 </div>
@@ -591,13 +657,67 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
   </div>
 </section>
 
+
+<section id="depoimentos" class="sec">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0">
+      <div>
+        <div class="sl r"><div class="sl-r"></div><span>Clientes</span></div>
+        <h2 class="st r d1">O que dizem sobre<br><em>nosso trabalho</em></h2>
+      </div>
+      <p class="r d2" style="font-size:14px;line-height:1.82;color:rgba(13,11,8,.44);max-width:300px;text-align:right">Cada caso é único. Cada conquista, compartilhada. Veja o que nossos clientes dizem sobre a experiência.</p>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card r d1">
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <p class="dep-text">"Depois de anos tentando minha aposentadoria sozinha, a Dra. Mikaeli resolveu em menos de 4 meses. Explicou tudo com paciência, nunca me deixou no escuro. Gratidão enorme."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">M</div>
+          <div>
+            <div class="dep-author-name">Maria Aparecida S.</div>
+            <div class="dep-author-case">Aposentadoria por invalidez · INSS</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card r d2">
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <p class="dep-text">"Fui demitido sem receber nada do que era devido. A Dra. Mikaeli entrou com a ação, explicou cada etapa e conseguimos todas as verbas rescisórias mais danos morais. Profissional exemplar."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">R</div>
+          <div>
+            <div class="dep-author-name">Roberto C.</div>
+            <div class="dep-author-case">Rescisão indireta · Trabalhista</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card r d3">
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <p class="dep-text">"Tive um problema sério com cobrança indevida de banco. Ela foi direta, eficiente e em 60 dias tínhamos a sentença favorável. Indico para todos que precisam de alguém de confiança."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">A</div>
+          <div>
+            <div class="dep-author-name">Ana Paula F.</div>
+            <div class="dep-author-case">Cobrança indevida · Cível</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contato">
   <div class="contact-g">
     <div class="contact-info">
       <div class="sl r"><div class="sl-r"></div><span>Fale com a Dra. Mikaeli</span></div>
       <h2 class="st r d1">Seu caso merece<br><em>atenção agora</em></h2>
       <ul class="citems">
-        <a href="https://wa.me/5511999999999" class="ci r d1" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511969386036" class="ci r d1" target="_blank" rel="noopener">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></div>
           <div><span class="ci-lbl">WhatsApp — Resposta Rápida</span><span class="ci-val">Clique e fale agora com a equipe</span></div>
         </a>
@@ -609,12 +729,16 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div><span class="ci-lbl">Localização</span><span class="ci-val">São Paulo — SP · Presencial e online</span></div>
         </div>
-        <a href="https://instagram.com" class="ci r d4" target="_blank" rel="noopener">
+        <a href="https://www.instagram.com/mikaelimendoncaadv/" class="ci r d4" target="_blank" rel="noopener">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
-          <div><span class="ci-lbl">Instagram</span><span class="ci-val">@mikaelimendonca.adv · Conteúdo jurídico diário</span></div>
+          <div><span class="ci-lbl">Instagram</span><span class="ci-val">@mikaelimendoncaadv · Conteúdo jurídico diário</span></div>
         </a>
+        <div class="horario-item r d4">
+          <div class="horario-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><span class="horario-lbl">Horário de Atendimento</span><span class="horario-val">Seg – Sex, 09h às 18h · Sáb mediante agendamento</span></div>
+        </div>
       </ul>
-      <a href="https://wa.me/5511999999999" class="contact-cta r d4" target="_blank" rel="noopener">
+      <a href="https://wa.me/5511969386036" class="contact-cta r d4" target="_blank" rel="noopener">
         <span>Agendar consulta agora</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -626,9 +750,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 </section>
 
 <div class="sbar">
-  <a href="https://instagram.com" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-  <a href="https://facebook.com" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-  <a href="https://linkedin.com" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+  <a href="https://www.instagram.com/mikaelimendoncaadv/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+  <a href="https://www.facebook.com/mikaelimendonca.adv" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+  <a href="https://www.linkedin.com/in/mikaeli-mendonca" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
 </div>
 
 <footer>
@@ -637,7 +761,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
   <p class="f-oab">OAB/SP 388.926<br>São Paulo — SP</p>
 </footer>
 
-<a href="https://wa.me/5511999999999" class="wafab" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+<a href="https://wa.me/5511969386036" class="wafab" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -683,6 +807,58 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 // Reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -32px 0px'});
 document.querySelectorAll('.r,.r-l').forEach(el=>io.observe(el));
+</script>
+
+<!-- LGPD Banner -->
+<div class="lgpd" id="lgpd" role="dialog" aria-label="Aviso de privacidade">
+  <p>Usamos cookies essenciais para o funcionamento do site. Ao continuar navegando, você concorda com nossa <a href="#" onclick="return false">Política de Privacidade</a> em conformidade com a <strong style="color:rgba(253,252,250,.75)">LGPD (Lei 13.709/18)</strong>. Suas informações são tratadas com sigilo e nunca compartilhadas com terceiros.</p>
+  <div class="lgpd-btns">
+    <button class="lgpd-decline" onclick="closeLgpd(false)">Recusar</button>
+    <button class="lgpd-accept" onclick="closeLgpd(true)">Aceitar</button>
+  </div>
+</div>
+
+<script>
+// CountUp animation
+function countUp(el, target, duration) {
+  var start = 0, startTime = null;
+  var isPlus = el.dataset.plus === '1';
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    var progress = Math.min((ts - startTime) / duration, 1);
+    var ease = 1 - Math.pow(1 - progress, 3);
+    var val = Math.round(start + (target - start) * ease);
+    el.textContent = val + (isPlus ? '+' : '');
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target + (isPlus ? '+' : '');
+  }
+  requestAnimationFrame(step);
+}
+var counted = false;
+var numObs = new IntersectionObserver(function(entries) {
+  if (entries[0].isIntersecting && !counted) {
+    counted = true;
+    var nums = document.querySelectorAll('[data-count]');
+    nums.forEach(function(el) {
+      countUp(el, parseInt(el.dataset.count), 1800);
+    });
+  }
+}, {threshold: 0.5});
+var numBar = document.querySelector('.numbar');
+if (numBar) numObs.observe(numBar);
+
+// LGPD
+function closeLgpd(accepted) {
+  document.getElementById('lgpd').classList.remove('visible');
+  try { localStorage.setItem('lgpd', accepted ? '1' : '0'); } catch(e){}
+}
+try {
+  if (!localStorage.getItem('lgpd')) {
+    setTimeout(function(){ document.getElementById('lgpd').classList.add('visible'); }, 1500);
+  }
+} catch(e) {
+  setTimeout(function(){ document.getElementById('lgpd').classList.add('visible'); }, 1500);
+}
 </script>
 </body>
 </html>
