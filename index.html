@@ -26,13 +26,11 @@ html { font-size: 16px; scroll-behavior: smooth; }
 body { background: var(--linen); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.65; overflow-x: hidden; cursor: none; }
 
 /* CURSOR — desktop only */
-@media (hover: hover) {
-  .cur { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
-  .cur-dot { width: 8px; height: 8px; background: var(--copper); border-radius: 50%; transform: translate(-50%,-50%); }
-  .cur-ring { width: 36px; height: 36px; border: 1px solid var(--copper); border-radius: 50%; transform: translate(-50%,-50%); transition: width .3s var(--ease), height .3s var(--ease); opacity: .5; }
-  body:has(a:hover) .cur-ring, body:has(button:hover) .cur-ring { width: 54px; height: 54px; opacity: .75; }
-}
-@media (hover: none) { .cur { display: none; } body { cursor: auto; } }
+.cur { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; will-change: left, top; }
+.cur-dot { width: 8px; height: 8px; background: var(--copper); border-radius: 50%; transform: translate(-50%,-50%); }
+.cur-ring { width: 38px; height: 38px; border: 1.5px solid var(--copper); border-radius: 50%; transform: translate(-50%,-50%); transition: width .35s var(--ease), height .35s var(--ease), opacity .35s; opacity: .55; }
+body:has(a:hover) .cur-ring, body:has(button:hover) .cur-ring { width: 58px; height: 58px; opacity: .9; }
+@media (hover: none) { .cur { display: none !important; } body { cursor: auto !important; } }
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--sand); }
@@ -644,9 +642,32 @@ footer { background: var(--ink); border-top: 1px solid rgba(253,252,250,.05); pa
 </a>
 
 <script>
-// Cursor
-const cDot=document.getElementById('cDot'),cRing=document.getElementById('cRing');
-if(cDot){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cDot.style.left=mx+'px';cDot.style.top=my+'px';});(function a(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;cRing.style.left=rx+'px';cRing.style.top=ry+'px';requestAnimationFrame(a);})();}
+// Cursor customizado
+(function(){
+  var dot  = document.getElementById('cur');
+  var ring = document.getElementById('curR');
+  if(!dot || !ring) return;
+  // Ocultar enquanto o mouse não se mover
+  dot.style.opacity  = '0';
+  ring.style.opacity = '0';
+  var mx=0, my=0, rx=0, ry=0, active=false;
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    if(!active){ active=true; dot.style.opacity='1'; ring.style.opacity='1'; }
+  });
+  (function loop(){
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(loop);
+  })();
+  // Esconder ao sair da janela
+  document.addEventListener('mouseleave', function(){ dot.style.opacity='0'; ring.style.opacity='0'; active=false; });
+  document.addEventListener('mouseenter', function(){ if(active){ dot.style.opacity='1'; ring.style.opacity='1'; } });
+})();
 // Nav
 window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('stuck',window.scrollY>60));
 // Slider
